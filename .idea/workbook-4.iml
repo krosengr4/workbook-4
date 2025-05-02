@@ -7,6 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/ClassNotes/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/ClassNotes/src/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/ClassNotes/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/HotelOperations/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/HotelOperations/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/HotelOperations/src/test" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
