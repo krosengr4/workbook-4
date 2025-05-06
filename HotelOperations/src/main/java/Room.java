@@ -4,7 +4,8 @@ public class Room {
     double price;
     boolean isOccupied;
     boolean isDirty;
-    boolean isAvailable;
+    boolean checkIn;
+    boolean checkOut;
 
     //Constructor
     public Room(int numberOfBeds, double price, boolean isOccupied, boolean isDirty) {
@@ -46,11 +47,35 @@ public class Room {
     public void setDirty(boolean dirty) {
         this.isDirty = dirty;
     }
+    //endregion
 
     public boolean isAvailable() {
         return !isDirty && !isOccupied;
     }
-    //endregion
+
+    public void checkIn() {
+        checkIn = true;
+        setDirty(true);
+        setOccupied(true);
+    }
+
+    public boolean isCheckedIn() {
+        return this.checkIn;
+    }
+
+    public void checkOut() {
+        checkIn = false;
+        checkOut = true;
+        setOccupied(false);
+    }
+
+    public boolean isCheckedOut() {
+        return checkOut;
+    }
+
+    public void cleanRoom() {
+        setDirty(false);
+    }
 
 
 }

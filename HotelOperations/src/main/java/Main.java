@@ -1,13 +1,14 @@
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        //Creating new instance of Reservation object
-        Reservation res1 = new Reservation("king", 4, false);
-        System.out.println("price per night: " + res1.getPrice() + "\nTotal price: " + res1.getReservationTotal());
-
-        reservationsArray();
-        roomAvailability();
+//        reservationsArray();
+//        roomAvailability();
+        checkInOutClean();
+        employeeCheckInOut();
     }
 
     public static void reservationsArray() {
@@ -19,7 +20,7 @@ public class Main {
         reservations[2] = new Reservation("king", 4, false);
         reservations[3] = new Reservation("double", 2, true);
         // Print results
-        System.out.printf("Reservation 1 price per night: $%.2f.\nReservation 1 Total Price: $%.2f \n", reservations[1].getPrice(), reservations[1].getReservationTotal());
+        System.out.printf("Reservation 2 price per night: $%.2f.\nReservation 2 Total Price: $%.2f \n", reservations[1].getPrice(), reservations[1].getReservationTotal());
     }
 
     public static void roomAvailability() {
@@ -28,7 +29,7 @@ public class Main {
         //Instantiating Room objects
         r1 = new Room(3, 124.99, false, false);
         r2 = new Room(1, 109.99, false, true);
-        r3 = new Room(2, 114.99, false, true);
+        r3 = new Room(2, 114.99, true, true);
 
         //Printing out price and availability
         System.out.printf("""
@@ -36,7 +37,49 @@ public class Main {
                         Room 2 costs $%.2f per night. \
                         The availability is: %b
                         Room 3 costs $%.2f per night. The availability is: %b""",
-                r1.getPrice(), r1.isAvailable, r2.getPrice(), r2.isAvailable, r3.getPrice(), r3.isAvailable);
+                r1.getPrice(), r1.isAvailable(), r2.getPrice(), r2.isAvailable(), r3.getPrice(), r3.isAvailable());
+    }
+
+    public static void checkInOutClean() {
+        Room r1 = new Room(3, 124.99, false, false);
+        System.out.println("The guest is checked in: " + r1.isCheckedIn());
+        System.out.println("The guest has checked out?: " + r1.isCheckedOut());
+        System.out.println("Room 1 is available?: " + r1.isAvailable() + "\n");
+
+
+        r1.checkIn();
+        System.out.println("The guest is checked in: " + r1.isCheckedIn());
+        System.out.println("The guest has checked out?: " + r1.isCheckedOut());
+        System.out.println("The room is occupied?: " + r1.isOccupied);
+        System.out.println("Room 1 is available?: " + r1.isAvailable() + "\n");
+
+
+
+        r1.checkOut();
+        System.out.println("The guest is checked in: " + r1.isCheckedIn());
+        System.out.println("The guest has checked out?: " + r1.isCheckedOut());
+        System.out.println("The room is occupied?: " + r1.isOccupied );
+        System.out.println("Room 1 is available?: " + r1.isAvailable() + "\n");
+
+        r1.cleanRoom();
+        System.out.println("The guest is checked in: " + r1.isCheckedIn());
+        System.out.println("The guest has checked out?: " + r1.isCheckedOut());
+        System.out.println("The room is occupied?: " + r1.isOccupied);
+        System.out.println("Room 1 is available?: " + r1.isAvailable() + "\n");
+    }
+
+    public static void employeeCheckInOut() {
+        Employee e1 = new Employee(0001, "Roberto", "House Keeping", 22.05);
+
+        double timeStarted = e1.punchIn(10.67);
+        System.out.println("Start time: " + timeStarted);
+
+        double timeEnded = e1.punchOut(16.50);
+        System.out.println("End time: " + timeEnded);
+
+        double totalTimeWorked = e1.punchTimeCard(10.67, 16.50);
+        System.out.println("Total time worked: " + totalTimeWorked);
+
     }
 
 }

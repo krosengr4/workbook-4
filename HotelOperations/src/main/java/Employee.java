@@ -1,3 +1,5 @@
+import java.time.LocalTime;
+
 public class Employee {
 
     int employeeId;
@@ -7,13 +9,11 @@ public class Employee {
     int hoursWorked;
     int weeksWorked;
 
-    public Employee(int employeeId, String name, String department, double payRate, int hoursWorked, int weeksWorked) {
+    public Employee(int employeeId, String name, String department, double payRate) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
         this.payRate = payRate;
-        this.hoursWorked = hoursWorked;
-        this.weeksWorked = weeksWorked;
     }
 
     //region getters and setters
@@ -61,13 +61,25 @@ public class Employee {
         this.weeksWorked = weeksWorked;
     }
 
-    public int getWeeksWorked(){
+    public int getWeeksWorked() {
         return weeksWorked;
+    }
+
+    public double punchIn(double time) {
+        return time;
+    }
+
+    public double punchOut(double time) {
+        return time;
+    }
+
+    public double punchTimeCard (double inTime, double outTime) {
+        return outTime - inTime;
     }
 
     //endregion
 
-    public double calculateTotalPay (int hoursWorked, int payRate) {
+    public double calculateTotalPay(int hoursWorked, int payRate) {
         return this.hoursWorked * this.payRate;
     }
 
@@ -82,9 +94,6 @@ public class Employee {
 //
 //        return regularHours;
 //    }
-
-
-
 
 
 }
