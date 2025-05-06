@@ -7,8 +7,9 @@ public class Main {
 
 //        reservationsArray();
 //        roomAvailability();
-        checkInOutClean();
-        employeeCheckInOut();
+//        checkInOutClean();
+//        employeeCheckInOut();
+        bookHotelRooms();
     }
 
     public static void reservationsArray() {
@@ -80,6 +81,17 @@ public class Main {
         double totalTimeWorked = e1.punchTimeCard(10.67, 16.50);
         System.out.println(e1.getName() + " worked " + totalTimeWorked + " hours");
 
+    }
+
+    public static void bookHotelRooms () {
+        Hotel h1 = new Hotel("Marriot", 5, 20);
+
+        h1.bookRoom(3, false);
+        h1.bookRoom(2, true);
+        h1.bookRoom(7, false);
+
+        System.out.println("\nThere are now " + h1.getBookedBasicRooms() + " rooms booked and " + h1.getBookedSuites() + " suites booked.");
+        System.out.println(h1.getAvailableRooms() + " room(s) available. " + h1.getAvailableSuites() + " suite(s) available.");
     }
 
 }
