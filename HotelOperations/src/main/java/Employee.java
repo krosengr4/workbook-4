@@ -5,13 +5,15 @@ public class Employee {
     String department;
     double payRate;
     int hoursWorked;
+    int weeksWorked;
 
-    public Employee(int employeeId, String name, String department, double payRate, int hoursWorked) {
+    public Employee(int employeeId, String name, String department, double payRate, int hoursWorked, int weeksWorked) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
         this.payRate = payRate;
         this.hoursWorked = hoursWorked;
+        this.weeksWorked = weeksWorked;
     }
 
     //region getters and setters
@@ -54,11 +56,32 @@ public class Employee {
     public void setHoursWorked(int hoursWorked) {
         this.hoursWorked = hoursWorked;
     }
+
+    public void setWeeksWorked(int weeksWorked) {
+        this.weeksWorked = weeksWorked;
+    }
+
+    public int getWeeksWorked(){
+        return weeksWorked;
+    }
+
     //endregion
 
     public double calculateTotalPay (int hoursWorked, int payRate) {
         return this.hoursWorked * this.payRate;
     }
+
+//    public int calculateRegularhours(int hoursWorked, int weeksWorked) {
+//        int regularHours = 0;
+//        int hoursPerWeek = hoursWorked / weeksWorked;
+//        if(hoursPerWeek >= 40) {
+//            regularHours = (weeksWorked * 40);
+//        } else {
+//            regularHours += hoursPerWeek;
+//        }
+//
+//        return regularHours;
+//    }
 
 
 

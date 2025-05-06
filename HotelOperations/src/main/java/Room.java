@@ -12,8 +12,6 @@ public class Room {
         this.price = price;
         this.isOccupied = isOccupied;
         this.isDirty = isDirty;
-
-        this.isAvailable = isAvailable();
     }
 
     //region getters and setters
@@ -38,7 +36,7 @@ public class Room {
     }
 
     public void setOccupied(boolean occupied) {
-        isOccupied = occupied;
+        this.isOccupied = occupied;
     }
 
     public boolean isDirty() {
@@ -46,15 +44,11 @@ public class Room {
     }
 
     public void setDirty(boolean dirty) {
-        isDirty = dirty;
+        this.isDirty = dirty;
     }
 
     public boolean isAvailable() {
         return !isDirty && !isOccupied;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
     }
     //endregion
 
