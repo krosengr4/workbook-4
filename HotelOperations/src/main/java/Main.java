@@ -72,13 +72,13 @@ public class Main {
         Employee e1 = new Employee(0001, "Roberto", "House Keeping", 22.05);
 
         double timeStarted = e1.punchIn(10.67);
-        System.out.println("Start time: " + timeStarted);
+        System.out.println(e1.getName() + " Started at: " + timeStarted);
 
         double timeEnded = e1.punchOut(16.50);
-        System.out.println("End time: " + timeEnded);
+        System.out.println( e1.getName() + " Ended at: " + timeEnded);
 
         double totalTimeWorked = e1.punchTimeCard(10.67, 16.50);
-        System.out.println("Total time worked: " + totalTimeWorked);
+        System.out.println(e1.getName() + " worked " + totalTimeWorked + " hours");
 
     }
 
