@@ -1,3 +1,5 @@
+import java.time.LocalTime;
+
 public class Employee {
 
     int employeeId;
@@ -78,6 +80,24 @@ public class Employee {
             todayHours = time - startTime;
             this.hoursWorked += todayHours;
         }
+    }
+
+    public double punchIn() {
+        double startHour = LocalTime.now().getHour();
+        double startMinute = LocalTime.now().getMinute();
+        startMinute /= 60;
+        startTime = startHour + startMinute;
+
+        return startTime;
+    }
+
+    public double punchOut() {
+        double endHour = LocalTime.now().getHour();
+        double endMinute = LocalTime.now().getMinute();
+        endMinute /= 60;
+        endTime = endHour + endMinute;
+
+        return endTime;
     }
 
     public double calculateTotalPay(int hoursWorked, int payRate) {

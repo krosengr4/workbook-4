@@ -2,9 +2,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        reservationsArray();
-//        roomAvailability();
-//        checkInOutClean();
+        reservationsArray();
+        roomAvailability();
+        checkInOutClean();
         employeeCheckInOut();
         bookHotelRooms();
     }
@@ -79,10 +79,6 @@ public class Main {
         System.out.println(e1.getName() + " ended at " + e1.endTime);
         System.out.println(e1.getName() + " worked " + e1.todayHours + " hours today.");
         System.out.println(e1.getName() + " total hours worked: " + e1.getHoursWorked());
-
-        e1.punchTimeCard(9.00);
-        e1.punchTimeCard(10.00);
-        System.out.println(e1.getName() + " total hours worked: " + e1.getHoursWorked() + "\n");
     }
 
     public static void bookHotelRooms () {
