@@ -66,6 +66,7 @@ public class Employee {
     public int getWeeksWorked() {
         return weeksWorked;
     }
+    //endregion
 
     public void punchTimeCard(double time) {
         if(!isWorking) {
@@ -79,27 +80,8 @@ public class Employee {
         }
     }
 
-    public double shiftTime(double inTime, double outTime) {
-        return outTime - inTime;
-    }
-
-    //endregion
-
     public double calculateTotalPay(int hoursWorked, int payRate) {
         return this.hoursWorked * this.payRate;
     }
-
-//    public int calculateRegularhours(int hoursWorked, int weeksWorked) {
-//        int regularHours = 0;
-//        int hoursPerWeek = hoursWorked / weeksWorked;
-//        if(hoursPerWeek >= 40) {
-//            regularHours = (weeksWorked * 40);
-//        } else {
-//            regularHours += hoursPerWeek;
-//        }
-//
-//        return regularHours;
-//    }
-
 
 }
