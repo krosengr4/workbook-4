@@ -1,13 +1,15 @@
-import java.time.LocalTime;
-
 public class Employee {
 
     int employeeId;
     String name;
     String department;
     double payRate;
-    int hoursWorked;
+    double hoursWorked;
     int weeksWorked;
+    double startTime;
+    double endTime;
+    boolean isWorking;
+    double todayHours;
 
     public Employee(int employeeId, String name, String department, double payRate) {
         this.employeeId = employeeId;
@@ -49,7 +51,7 @@ public class Employee {
         this.payRate = payRate;
     }
 
-    public int getHoursWorked() {
+    public double getHoursWorked() {
         return hoursWorked;
     }
 
@@ -65,15 +67,19 @@ public class Employee {
         return weeksWorked;
     }
 
-    public double punchIn(double time) {
-        return time;
+    public void punchTimeCard(double time) {
+        if(!isWorking) {
+            startTime = time;
+            isWorking = true;
+        } else {
+            isWorking = false;
+            endTime = time;
+            todayHours = time - startTime;
+            this.hoursWorked += todayHours;
+        }
     }
 
-    public double punchOut(double time) {
-        return time;
-    }
-
-    public double punchTimeCard (double inTime, double outTime) {
+    public double shiftTime(double inTime, double outTime) {
         return outTime - inTime;
     }
 

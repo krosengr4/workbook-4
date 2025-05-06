@@ -1,6 +1,3 @@
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -8,7 +5,7 @@ public class Main {
 //        reservationsArray();
 //        roomAvailability();
 //        checkInOutClean();
-//        employeeCheckInOut();
+        employeeCheckInOut();
         bookHotelRooms();
     }
 
@@ -42,26 +39,28 @@ public class Main {
     }
 
     public static void checkInOutClean() {
+        //Creating new instance of Room object
         Room r1 = new Room(3, 124.99, false, false);
+        //Printing out if anyone is checked in or out and availability of room
         System.out.println("The guest is checked in: " + r1.isCheckedIn());
         System.out.println("The guest has checked out?: " + r1.isCheckedOut());
         System.out.println("Room 1 is available?: " + r1.isAvailable() + "\n");
 
-
+        //Checking a guest into r1
         r1.checkIn();
         System.out.println("The guest is checked in: " + r1.isCheckedIn());
         System.out.println("The guest has checked out?: " + r1.isCheckedOut());
         System.out.println("The room is occupied?: " + r1.isOccupied);
         System.out.println("Room 1 is available?: " + r1.isAvailable() + "\n");
 
-
-
+        //Checking a guest out
         r1.checkOut();
         System.out.println("The guest is checked in: " + r1.isCheckedIn());
         System.out.println("The guest has checked out?: " + r1.isCheckedOut());
         System.out.println("The room is occupied?: " + r1.isOccupied );
         System.out.println("Room 1 is available?: " + r1.isAvailable() + "\n");
 
+        //Cleaning room
         r1.cleanRoom();
         System.out.println("The guest is checked in: " + r1.isCheckedIn());
         System.out.println("The guest has checked out?: " + r1.isCheckedOut());
@@ -70,17 +69,20 @@ public class Main {
     }
 
     public static void employeeCheckInOut() {
-        Employee e1 = new Employee(0001, "Roberto", "House Keeping", 22.05);
+        //Create new instance of employee
+        Employee e1 = new Employee(1, "Roberto", "House Keeping", 22.05);
 
-        double timeStarted = e1.punchIn(10.67);
-        System.out.println(e1.getName() + " Started at: " + timeStarted);
+        e1.punchTimeCard(9.67);
+        e1.punchTimeCard(19.50);
 
-        double timeEnded = e1.punchOut(16.50);
-        System.out.println( e1.getName() + " Ended at: " + timeEnded);
+        System.out.println(e1.getName() + " started at " + e1.startTime);
+        System.out.println(e1.getName() + " ended at " + e1.endTime);
+        System.out.println(e1.getName() + " worked " + e1.todayHours + " hours today.");
+        System.out.println(e1.getName() + " total hours worked: " + e1.getHoursWorked());
 
-        double totalTimeWorked = e1.punchTimeCard(10.67, 16.50);
-        System.out.println(e1.getName() + " worked " + totalTimeWorked + " hours");
-
+        e1.punchTimeCard(9.00);
+        e1.punchTimeCard(10.00);
+        System.out.println(e1.getName() + " total hours worked: " + e1.getHoursWorked() + "\n");
     }
 
     public static void bookHotelRooms () {
