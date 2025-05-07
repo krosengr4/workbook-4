@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorTest {
     /*
     Arrange:
-    void testAddIntegers() {
+    void add_should_produceCorrectSum() {
         Act:
         int actualResult = calculator.add(i,j)
 
@@ -17,18 +17,18 @@ class CalculatorTest {
     }
         */
     @Test
-    void add() {
+    void add_should_produceCorrectSum() {
 
         Calculator calculator = new Calculator();
         int expectedResult = 5;
         int actualResult = calculator.add(2, 3);
 
-        //Assertions.assertEquals(expected, actualResult)
+        //Assertions.assertEquals(expected, actual)
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
     @Test
-    void multiply() {
+    void multiply_should_produceCorrectProduct() {
 
         Calculator calculator = new Calculator();
         int expected = 15;
@@ -38,8 +38,8 @@ class CalculatorTest {
     }
 
     @Test
-    void subtract() {
-        //* This test is meant to fail!
+    void subtract_should_produceCorrectDifference() {
+        //! This test is meant to fail!
         Calculator calculator = new Calculator();
         int expected = 20;
         int actual = calculator.subtract(70, 15);
