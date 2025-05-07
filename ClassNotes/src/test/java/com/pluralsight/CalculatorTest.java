@@ -7,20 +7,31 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
     /*
-    Arrange:
-    void add_should_produceCorrectSum() {
-        Act:
-        int actualResult = calculator.add(i,j)
+    Arrange, Act, Assert
 
-        Assert:
+    Arrange:
+    - Declare all variables that you will need to use throughout your test
+    - ex: Calculator calculator = new Calculator();
+          int expectedResult = 5;
+
+    Act:
+    - Call the function that is being tested
+    - ex: int actualResult = calculator.add(i,j)
+
+    Assert:
+    - Verify that your test either passed or failed
+    - Syntax:
         Assertions.assertEquals(expected, actualResult)
-    }
+
         */
     @Test
     void add_should_produceCorrectSum() {
 
+        //Arrange
         Calculator calculator = new Calculator();
         int expectedResult = 5;
+
+        //Act
         int actualResult = calculator.add(2, 3);
 
         //Assertions.assertEquals(expected, actual)
@@ -30,10 +41,14 @@ class CalculatorTest {
     @Test
     void multiply_should_produceCorrectProduct() {
 
+        //Arrange
         Calculator calculator = new Calculator();
         int expected = 15;
+
+        //Act
         int actual = calculator.multiply(3, 5);
 
+        //Assert
         assertEquals(15, actual);
     }
 
