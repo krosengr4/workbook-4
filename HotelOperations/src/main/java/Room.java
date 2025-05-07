@@ -53,10 +53,14 @@ public class Room {
         return !isDirty && !isOccupied;
     }
 
-    public void checkIn() {
-        checkIn = true;
-        setDirty(true);
-        setOccupied(true);
+    public boolean checkIn() {
+       if (isAvailable()) {
+           setDirty(true);
+           setOccupied(true);
+           return true;
+       } else {
+           return false;
+       }
     }
 
     public boolean isCheckedIn() {
@@ -74,8 +78,12 @@ public class Room {
     }
 
     public void cleanRoom() {
-        setDirty(false);
+        if (!this.isOccupied && this.isDirty)
+            setDirty(false);
     }
 
+    public boolean canClean() {
+        return isDirty && !isOccupied;
+    }
 
 }

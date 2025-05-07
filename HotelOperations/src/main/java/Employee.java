@@ -10,6 +10,9 @@ public class Employee {
     int weeksWorked;
     double startTime;
     double endTime;
+
+
+
     boolean isWorking;
     double todayHours;
 
@@ -82,26 +85,53 @@ public class Employee {
         }
     }
 
-    public double punchIn() {
-        double startHour = LocalTime.now().getHour();
-        double startMinute = LocalTime.now().getMinute();
-        startMinute /= 60;
-        startTime = startHour + startMinute;
-
-        return startTime;
+    public void punchIn(double time) {
+        startTime = time;
+        setWorking(true);
     }
 
-    public double punchOut() {
-        double endHour = LocalTime.now().getHour();
-        double endMinute = LocalTime.now().getMinute();
-        endMinute /= 60;
-        endTime = endHour + endMinute;
+    public void punchOut(double time) {
+        endTime = time;
 
-        return endTime;
+        hoursWorked += endTime - startTime;
+        setWorking(false);
     }
+
+    public boolean isWorking() {
+        return isWorking;
+    }
+
+    public void setWorking(boolean working) {
+        isWorking = working;
+    }
+
+//    public double punchIn() {
+//        double startHour = LocalTime.now().getHour();
+//        double startMinute = LocalTime.now().getMinute();
+//        startMinute /= 60;
+//        startTime = startHour + startMinute;
+//
+//        return startTime;
+//    }
+//
+//    public double punchOut() {
+//        double endHour = LocalTime.now().getHour();
+//        double endMinute = LocalTime.now().getMinute();
+//        endMinute /= 60;
+//        endTime = endHour + endMinute;
+//
+//        return endTime;
+//    }
 
     public double calculateTotalPay(int hoursWorked, int payRate) {
         return this.hoursWorked * this.payRate;
     }
 
+    public double getEndTime() {
+        return endTime;
+    }
+
+    public double getStartTime() {
+        return startTime;
+    }
 }

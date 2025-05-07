@@ -20,8 +20,14 @@ class CalculatorTest {
 
     Assert:
     - Verify that your test either passed or failed
+    - There are many assertions:
+        assertEquals
+        assertNotEquals
+        assertArrayEquals
+        assertTrue
     - Syntax:
-        Assertions.assertEquals(expected, actualResult)
+        Assertions.assertEquals(expected, actual)
+        Assertions.assertArrayEquals(expectedArray, actualArray)
 
         */
     @Test
@@ -34,7 +40,7 @@ class CalculatorTest {
         //Act
         int actualResult = calculator.add(2, 3);
 
-        //Assertions.assertEquals(expected, actual)
+        //Assert
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
