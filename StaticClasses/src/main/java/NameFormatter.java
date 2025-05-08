@@ -1,23 +1,31 @@
 public class NameFormatter {
 
-    public static String format(String prefix, String firstName, String middleName, String lastName, String suffix) {
-        String fullName = "";
+    public static String format(String fullName) {
 
-        if (prefix != null && !prefix.isEmpty()) {
-            fullName += prefix + ". ";
+        String[] nameParts = fullName.split(" ");
+        String prefix = nameParts[0];
+        String firstName = nameParts[1];
+        String middleName = nameParts[2];
+        String lastName = nameParts[3];
+        String suffix = nameParts[4];
+
+        String formattedName = "";
+
+        if (!lastName.equalsIgnoreCase("null")) {
+            formattedName += lastName + ", ";
         }
-        if (firstName != null && !firstName.isEmpty()) {
-            fullName +=  firstName + " ";
+        if (!prefix.equalsIgnoreCase("null")) {
+            formattedName += prefix + " ";
         }
-        if (middleName != null && !middleName.isEmpty()) {
-            fullName += middleName + " ";
+        if (!firstName.equalsIgnoreCase("null")) {
+            formattedName +=  firstName + " ";
         }
-        if (lastName != null && !lastName.isEmpty()) {
-            fullName += lastName;
+        if (!middleName.equalsIgnoreCase("null")) {
+            formattedName += middleName;
         }
-        if (suffix != null && !suffix.isEmpty()) {
-            fullName += ", " + suffix;
+        if (!suffix.equalsIgnoreCase("null")) {
+            formattedName += ", " + suffix;
         }
-        return fullName;
+        return formattedName;
     }
 }

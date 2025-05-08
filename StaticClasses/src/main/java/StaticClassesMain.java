@@ -37,8 +37,10 @@ public class StaticClassesMain {
             userSuffix = myScanner.nextLine();
         }
 
-        String userFormattedName = NameFormatter.format(userPrefix, userFirstName, userMiddleName, userLastName, userSuffix);
-        System.out.println(userFormattedName);
+        String userFullName = userPrefix + " " + userFirstName + " " + userMiddleName + " " + userLastName + " " + userSuffix;
+
+        String userFormattedName = NameFormatter.format(userFullName);
+        System.out.println("Your Formatted Name: \n" + userFormattedName);
     }
 
 }
