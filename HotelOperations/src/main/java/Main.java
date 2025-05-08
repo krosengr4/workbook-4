@@ -78,7 +78,7 @@ public class Main {
         System.out.println(e1.getName() + " started at " + e1.startTime);
         System.out.println(e1.getName() + " ended at " + e1.endTime);
         System.out.println(e1.getName() + " worked " + e1.todayHours + " hours today.");
-        System.out.println(e1.getName() + " total hours worked: " + e1.getHoursWorked());
+        System.out.println(e1.getName() + " total hours worked: " + e1.getTotalHours());
     }
 
     public static void bookHotelRooms () {

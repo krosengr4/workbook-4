@@ -1,12 +1,10 @@
-import java.time.LocalTime;
-
 public class Employee {
 
     int employeeId;
     String name;
     String department;
     double payRate;
-    double hoursWorked;
+    double totalHours;
     int weeksWorked;
     double startTime;
     double endTime;
@@ -56,12 +54,12 @@ public class Employee {
         this.payRate = payRate;
     }
 
-    public double getHoursWorked() {
-        return hoursWorked;
+    public double getTotalHours() {
+        return totalHours;
     }
 
-    public void setHoursWorked(int hoursWorked) {
-        this.hoursWorked = hoursWorked;
+    public void setTotalHours(int totalHours) {
+        this.totalHours = totalHours;
     }
 
     public void setWeeksWorked(int weeksWorked) {
@@ -81,20 +79,29 @@ public class Employee {
             isWorking = false;
             endTime = time;
             todayHours = time - startTime;
-            this.hoursWorked += todayHours;
+            this.totalHours += todayHours;
         }
     }
 
-    public void punchIn(double time) {
-        startTime = time;
-        setWorking(true);
+    public boolean punchIn(double time) {
+        if (!this.isWorking && time < 24 && time > 0) {
+            startTime = time;
+            setWorking(true);
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public void punchOut(double time) {
+    public boolean punchOut(double time) {
+        if (this.isWorking && time < 24 && time > 0) {
         endTime = time;
-
-        hoursWorked += endTime - startTime;
+        totalHours += endTime - startTime;
         setWorking(false);
+        return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean isWorking() {
@@ -124,7 +131,7 @@ public class Employee {
 //    }
 
     public double calculateTotalPay(int hoursWorked, int payRate) {
-        return this.hoursWorked * this.payRate;
+        return this.totalHours * this.payRate;
     }
 
     public double getEndTime() {
