@@ -1,9 +1,9 @@
 package com.pluralsight;
 
 public class BankAccount {
-    //Static variables
+    //Static variables(same for every instance of object)
     static double interestRate;
-    //Instance variables
+    //Instance variables(each instance of object can hold different values for these)
     String number;
     String name;
     double balance;
@@ -13,7 +13,6 @@ public class BankAccount {
         this.name = name;
         this.balance = balance;
     }
-
     /*
     Instance:
         - Everytime an instance of the object(BankAccount) is created, a new instance of
