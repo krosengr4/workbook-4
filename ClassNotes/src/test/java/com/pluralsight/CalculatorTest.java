@@ -62,10 +62,21 @@ class CalculatorTest {
     void subtract_should_produceCorrectDifference() {
         //! This test is meant to fail!
         Calculator calculator = new Calculator();
-        int expected = 20;
+        int expected = 55;
         int actual = calculator.subtract(70, 15);
 
         //actual = 55, but expected = 20
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void divide() {
+        Calculator calculator = new Calculator();
+        int expected = 3;
+
+        int actual = calculator.divide(9, 3);
+
+        Assertions.assertEquals(expected, actual);
+
     }
 }

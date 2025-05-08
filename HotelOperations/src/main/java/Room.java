@@ -54,36 +54,40 @@ public class Room {
     }
 
     public boolean checkIn() {
-       if (isAvailable()) {
-           setDirty(true);
-           setOccupied(true);
-           return true;
-       } else {
-           return false;
-       }
+        if (!this.isDirty && !this.isOccupied) {
+            setDirty(true);
+            setOccupied(true);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean isCheckedIn() {
         return this.checkIn;
     }
 
-    public void checkOut() {
-        checkIn = false;
-        checkOut = true;
-        setOccupied(false);
+    public boolean checkOut() {
+        if (this.isOccupied) {
+            checkIn = false;
+            checkOut = true;
+            setOccupied(false);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean isCheckedOut() {
         return checkOut;
     }
 
-    public void cleanRoom() {
-        if (!this.isOccupied && this.isDirty)
+    public boolean cleanRoom() {
+        if (!this.isOccupied && this.isDirty) {
             setDirty(false);
+            return true;
+        } else {
+            return false;
+        }
     }
-
-    public boolean canClean() {
-        return isDirty && !isOccupied;
-    }
-
 }
