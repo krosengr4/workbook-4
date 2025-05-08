@@ -9,6 +9,9 @@
       <sourceFolder url="file://$MODULE_DIR$/HotelOperations/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/HotelOperations/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/HotelOperations/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/StaticClasses/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/StaticClasses/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/StaticClasses/src/test" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
