@@ -29,28 +29,42 @@ public class BlackJackMain {
             if (p1Hand.getValue() > 21 && p2Hand.getValue() <= 21) {
                 System.out.println(p2 + " wins!");
                 p2TotalGamesWon++;
+                System.out.println(p1TotalGamesWon + " - " + p2TotalGamesWon);
                 Utils.pauseApp();
             } else if (p2Hand.getValue() > 21 && p1Hand.getValue() <= 21) {
                 System.out.println(p1 + " wins!");
                 p1TotalGamesWon++;
+                System.out.println(p1TotalGamesWon + " - " + p2TotalGamesWon);
                 Utils.pauseApp();
             } else if (p1Hand.getValue() > p2Hand.getValue() && p1Hand.getValue() <= 21) {
                 System.out.println(p1 + " wins!");
                 p1TotalGamesWon++;
+                System.out.println(p1TotalGamesWon + " - " + p2TotalGamesWon);
                 Utils.pauseApp();
             } else if (p1Hand.getValue() < p2Hand.getValue() && p2Hand.getValue() <= 21) {
                 System.out.println(p2 + " wins!");
                 p2TotalGamesWon++;
+                System.out.println(p1TotalGamesWon + " - " + p2TotalGamesWon);
+
                 Utils.pauseApp();
             } else if (p1Hand.getValue() <= 21 && p2Hand.getValue() <= 21 && p1Hand.getValue() == p2Hand.getValue()) {
                 System.out.println("It is a draw!");
+                System.out.println(p1TotalGamesWon + " - " + p2TotalGamesWon);
+                Utils.pauseApp();
             }
 
             String playAgain = Utils.promptGetUserInput("Would you like to play another hand? (y or n): ");
+
             if (playAgain.equalsIgnoreCase("n")) {
-                System.out.println(p1 + ": " + p1TotalGamesWon);
-                System.out.println(p2 + ": " + p2TotalGamesWon);
-                System.out.println("Thanks for playing!");
+
+                if (p1TotalGamesWon > p2TotalGamesWon) {
+                    System.out.printf("%s has defeated %s %d - %d", p1, p2, p1TotalGamesWon, p2TotalGamesWon);
+                } else if (p1TotalGamesWon < p2TotalGamesWon) {
+                    System.out.printf("%s has defeated %s %d - %d", p2, p1, p2TotalGamesWon, p1TotalGamesWon);
+                } else {
+                    System.out.println("We will never know who is superior.");
+                }
+                System.out.println("\n---Thanks for playing!---");
                 ifContinue = false;
             }
         }
