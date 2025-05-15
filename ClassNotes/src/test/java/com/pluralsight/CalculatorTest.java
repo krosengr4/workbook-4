@@ -62,7 +62,7 @@ class CalculatorTest {
     void subtract_should_produceCorrectDifference() {
         //! This test is meant to fail!
         Calculator calculator = new Calculator();
-        int expected = 55;
+        int expected = 20;
         int actual = calculator.subtract(70, 15);
 
         //actual = 55, but expected = 20
