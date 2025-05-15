@@ -71,12 +71,14 @@ class CalculatorTest {
 
     @Test
     void divide() {
+        //Arrange
         Calculator calculator = new Calculator();
         int expected = 3;
 
+        //Act
         int actual = calculator.divide(9, 3);
 
+        //Assert
         Assertions.assertEquals(expected, actual);
-
     }
 }
